@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17191d">
+  <meta name="description" content="A lightweight Python-powered workspace for cleaning records and discovering summary statistics.">
+  <title>RecordLab — Python Data Processing</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="RecordLab home">
+        <span class="brand-mark">r<span>.</span></span>
+        <span class="brand-word">record<span>lab</span></span>
+      </a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#workspace"><span class="nav-icon">◫</span><span>Data studio</span><span class="nav-dot"></span></a>
+        <a class="nav-item" href="#datasets"><span class="nav-icon">▤</span><span>Sample datasets</span></a>
+        <a class="nav-item" href="#insights"><span class="nav-icon">↗</span><span>Field insights</span></a>
+        <a class="nav-item" href="#preview"><span class="nav-icon">☷</span><span>Record preview</span></a>
+      </nav>
+      <div class="side-spacer"></div>
+      <div class="sidebar-note">
+        <div class="note-symbol">✳</div>
+        <div class="note-title">Small data. Clear signals.</div>
+        <p>Bring your rows in. Let Python do the counting.</p>
+      </div>
+      <div class="engine-status"><span class="live-dot"></span><span>PYTHON ENGINE</span><span class="status-live">LIVE</span></div>
+      <div class="side-foot">TASK 09 <span>·</span> LEVEL 1</div>
+    </aside>
+
+    <main class="main-content" id="top">
+      <header class="topbar">
+        <div class="crumb"><span>PROJECT</span><span class="crumb-slash">/</span><strong>PYTHON DATA PROCESSING</strong></div>
+        <div class="topbar-right"><span class="date-chip">● LOCAL WORKSPACE</span><div class="avatar" aria-label="Workspace initials">PM</div></div>
+      </header>
+
+      <section class="page-intro" id="workspace">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> YOUR DATA, MADE USEFUL <span class="task-pill">TASK 09</span></div>
+          <h1>Less scrolling.<br><span>More signal.</span></h1>
+          <p class="intro-copy">Process structured records, spot missing values, and turn raw rows into a clear statistical summary — powered by Python, right on your machine.</p>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <div class="graphic-ring ring-one"></div><div class="graphic-ring ring-two"></div>
+          <div class="graphic-center"><span>R</span><b>LAB</b></div>
+          <div class="float-tag tag-a">mean <b>↗</b></div><div class="float-tag tag-b">rows <b>+</b></div><div class="float-tag tag-c">nulls <b>0?</b></div>
+        </div>
+      </section>
+
+      <section class="import-panel" id="datasets">
+        <div class="panel-heading">
+          <div><div class="section-kicker">01 / BRING IN DATA</div><h2>Start with a dataset</h2></div>
+          <span class="format-hint">CSV <span>or</span> JSON <span class="format-separator">·</span> max 2 MB</span>
+        </div>
+        <div class="source-grid">
+          <label class="upload-box" id="drop-zone" for="file-input">
+            <input id="file-input" type="file" accept=".csv,.json,text/csv,application/json" hidden>
+            <span class="upload-symbol">↑</span>
+            <span class="upload-main">Drop a file here <span>or browse</span></span>
+            <span class="upload-sub" id="file-label">Choose a .csv or .json file from your computer</span>
+          </label>
+          <div class="sample-box">
+            <div class="sample-label">OR TRY A READY-MADE SET</div>
+            <button class="sample-button selected" data-sample="students" type="button"><span class="sample-icon student-icon">ST</span><span><b>Student records</b><small>Grades · attendance · 8 rows</small></span><span class="sample-arrow">↗</span></button>
+            <button class="sample-button" data-sample="employees" type="button"><span class="sample-icon employee-icon">HR</span><span><b>Employee records</b><small>Teams · salaries · 8 rows</small></span><span class="sample-arrow">↗</span></button>
+            <button class="sample-button" data-sample="sales" type="button"><span class="sample-icon sales-icon">$</span><span><b>Sales records</b><small>Products · revenue · 8 rows</small></span><span class="sample-arrow">↗</span></button>
+          </div>
+        </div>
+        <div class="import-footer"><div class="privacy-note"><span>◈</span> Your file stays in this local workspace.</div><button id="analyze-button" class="primary-button" type="button"><span class="button-spark">✳</span> Run analysis <span class="button-arrow">→</span></button></div>
+      </section>
+
+      <div class="results-head" id="insights">
+        <div><div class="section-kicker">02 / THE OVERVIEW</div><h2>What’s in your data?</h2><p id="dataset-description">Student records · demo dataset</p></div>
+        <div class="run-badge"><span class="live-dot"></span><span id="analysis-status">ANALYSIS READY</span></div>
+      </div>
+      <section class="metric-grid" aria-label="Dataset summary statistics">
+        <article class="metric-card metric-purple"><div class="metric-top"><span>PROCESSED ROWS</span><span class="metric-icon">▤</span></div><div class="metric-number" id="metric-rows">—</div><div class="metric-foot">Records in this dataset</div><div class="metric-rule"></div></article>
+        <article class="metric-card metric-lime"><div class="metric-top"><span>FIELDS FOUND</span><span class="metric-icon">⌗</span></div><div class="metric-number" id="metric-fields">—</div><div class="metric-foot">Columns detected</div><div class="metric-rule"></div></article>
+        <article class="metric-card metric-orange"><div class="metric-top"><span>NUMERIC FIELDS</span><span class="metric-icon">∑</span></div><div class="metric-number" id="metric-numeric">—</div><div class="metric-foot">Ready for statistics</div><div class="metric-rule"></div></article>
+        <article class="metric-card metric-ink"><div class="metric-top"><span>MISSING VALUES</span><span class="metric-icon">◌</span></div><div class="metric-number" id="metric-missing">—</div><div class="metric-foot" id="metric-missing-note">Blank cells detected</div><div class="metric-rule"></div></article>
+      </section>
+
+      <section class="insight-layout">
+        <article class="content-card numeric-card">
+          <div class="card-heading"><div><div class="section-kicker">03 / NUMBER CRUNCH</div><h3>Numeric field insights</h3></div><span class="tiny-badge">PYTHON STATS</span></div>
+          <p class="card-description">A quick read on the spread of each numeric field.</p>
+          <div id="numeric-insights" class="numeric-insights"><div class="empty-state">Run analysis to see field-level statistics.</div></div>
+        </article>
+        <article class="content-card health-card">
+          <div class="card-heading"><div><div class="section-kicker">04 / DATA HYGIENE</div><h3>Dataset health</h3></div><span class="health-spark">✳</span></div>
+          <div class="health-score-row"><div><div class="health-score" id="health-score">—<span>/100</span></div><div class="health-caption">Completeness score</div></div><div class="donut" id="health-donut"><div class="donut-inner"><span id="health-percent">—</span><small>complete</small></div></div></div>
+          <div class="health-track"><span id="health-track-fill"></span></div>
+          <div class="health-detail"><span>Missing cells</span><strong id="health-missing">—</strong></div>
+          <div class="health-detail"><span>Duplicate rows</span><strong id="health-duplicates">—</strong></div>
+          <div class="health-detail"><span>Unique categories</span><strong id="health-unique">—</strong></div>
+          <div class="health-tip"><span>↳</span><p id="health-tip-text">Load a dataset to receive a data quality note.</p></div>
+        </article>
+      </section>
+
+      <section class="content-card table-card" id="preview">
+        <div class="table-top"><div><div class="section-kicker">05 / PROCESSED OUTPUT</div><h3>Record preview <span class="count-pill" id="preview-count">0 rows</span></h3><p class="card-description">Cleaned fields and a sample of the records returned by Python.</p></div><div class="export-actions"><button id="export-csv" class="secondary-button" type="button">↓ Export CSV</button><button id="export-report" class="secondary-button report-button" type="button">↗ Export report</button></div></div>
+        <div class="table-tools"><div class="table-tabs"><button class="table-tab active" id="tab-records" type="button">Records</button><button class="table-tab" id="tab-fields" type="button">Field summary</button></div><label class="search-wrap"><span>⌕</span><input type="search" id="record-search" placeholder="Search visible rows…" aria-label="Search records"></label></div>
+        <div class="table-wrap" id="table-wrap"><div class="empty-table"><span>▤</span><b>Your table will appear here</b><small>Choose a sample or upload a file to begin.</small></div></div>
+        <div class="table-bottom"><span id="table-caption">Waiting for a dataset</span><span class="powered-by"><span class="live-dot"></span> PROCESSED WITH PYTHON</span></div>
+      </section>
+
+      <footer class="footer"><span><strong>RECORDLAB</strong> · A practical data-processing project</span><span>Built for TASK 09 <span class="footer-spark">✳</span></span></footer>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+</body>
+</html>
